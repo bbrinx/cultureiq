@@ -1,0 +1,22 @@
+{
+  "name": "cultureiq",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "cd server && yarn start",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+    "start": "cd server && yarn start",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  },
+  "engines": {
+    "node": "11.3.0"
+  }
+}

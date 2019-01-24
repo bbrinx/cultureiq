@@ -1,0 +1,51 @@
+.main {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 2%;
+}
+
+.container {
+  position: relative;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 5%;
+  button, textarea {
+    width: 100%;
+  }
+  textarea {
+    height: 25vh;
+    font-size: 32px;
+  }
+  button {
+    margin-top: 1em;
+    border: 0;
+    height: 3em;
+    background-color: #EEAE1C;
+    color: #282c34;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .results {
+    font-size: 16px;
+    text-align: left;
+    width: 100%;
+    table-layout: fixed;
+    border-spacing: 0 5px;
+    th {
+      padding: 15px 0;
+    }
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
