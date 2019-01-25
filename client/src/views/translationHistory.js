@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom'
 
 const translationHistory = (props) => {
   const { history } = props;
@@ -19,11 +20,12 @@ const translationHistory = (props) => {
             <tr key={translation.id}>
               <td>{translation.text}</td>
               <td>{translation.lang}</td>
-              <td>{translation.trans.toLowerCase()}</td>
+              <td>{translation.trans}</td>
             </tr>
           ))}
         </tbody>
       </table>
+      <NavLink className="navlink" to="/">Translator</NavLink>
     </div>
   );
 };

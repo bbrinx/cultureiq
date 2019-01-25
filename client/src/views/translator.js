@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom'
 
 class Translator extends Component {
   constructor() {
@@ -40,7 +41,7 @@ class Translator extends Component {
           <textarea value={text} type="text" name="text" onChange={this.handleChange} onKeyDown={this.onEnterPress} />
           <button type="submit" value="submit">Translate</button>
         </form>
-        
+        <NavLink className="navlink" to="/history">See Translation History</NavLink>
       </div>
     );
   }

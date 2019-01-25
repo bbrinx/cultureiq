@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom'
 import swal from 'sweetalert';
 import Translator from './views/translator';
 import TranslationHistory from './views/translationHistory';
@@ -53,12 +54,16 @@ class App extends Component {
   render() {
     const { translationHistory } = this.state;
     return (
-      <div className="main">
-        <div className="container">
-          <Translator translate={this.translate} />
-          <TranslationHistory history={translationHistory} />
+      <BrowserRouter>
+        <div className="main">
+          <div className="container">
+            <Route path="/" exact render={(props) => <Translator {...props} translate={this.translate} />} />
+            <Route path="/history" render={(props) => <TranslationHistory {...props} history={translationHistory} />} />
+          </div>
         </div>
-      </div>
+
+
+      </BrowserRouter>
     );
   }
 }
