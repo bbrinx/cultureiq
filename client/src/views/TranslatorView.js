@@ -2,53 +2,52 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom'
 
-class Translator extends Component {
+class TranslatorView extends Component {
   constructor() {
     super();
     this.state = {
       text: '',
+      trans: ''
     };
-    this.onEnterPress = this.onEnterPress.bind(this);
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  onEnterPress(e) {
-    if (e.keyCode === 13 && e.shiftKey === false) {
-      this.handleSubmit(e);
-    }
   }
 
   handleChange(e) {
     this.setState({ text: e.target.value });
   }
-
-
   handleSubmit(e) {
     e.preventDefault();
-    const { text } = this.state;
-    const { translate } = this.props;
-    if (!text) return;
-    translate(text);
-    this.setState({ text: '' });
+    this.props.handleSubmit(this.state.text);
   }
 
   render() {
     const { text } = this.state;
+    const { translation } = this.props;
+
     return (
       <div className="wrapper translator">
         <form onSubmit={this.handleSubmit}>
-          <textarea value={text} type="text" name="text" onChange={this.handleChange} onKeyDown={this.onEnterPress} />
+          <textarea 
+            placeholder="Text..." 
+            value={text} 
+            name="text" 
+            id="text" 
+            onChange={this.handleChange} 
+            onKeyPress={(e) => (e.key === 'Enter' ? this.handleSubmit(e) : null)}
+          />
           <button type="submit" value="submit">Translate</button>
         </form>
+        <div className="translation">{translation}</div>
         <NavLink className="navlink" to="/history">See Translation History</NavLink>
       </div>
     );
   }
 }
 
-Translator.propTypes = {
-  translate: PropTypes.func.isRequired,
+TranslatorView.propTypes = {
+  handleSubmit: PropTypes.func.isRequired,
 };
 
-export default Translator;
+export default TranslatorView;

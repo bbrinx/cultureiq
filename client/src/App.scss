@@ -10,9 +10,10 @@
 
 .container {
   position: relative;
-  width: 50%;
+  width: 80%;
   margin: 0 auto;
   margin-top: 5%;
+  max-width: 600px;
   button, textarea {
     width: 100%;
   }
@@ -41,6 +42,17 @@
   }
   .navlink {
     margin-top: 25px;
+  }
+}
+
+.translator {
+  .translation {
+    min-height: 80px;
+    background-color: #fff;
+    margin-top: 10%;
+    color: #282c34;
+    font-weight: bold;
+    padding: 2%;
   }
 }
 

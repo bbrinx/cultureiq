@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom'
 
-const translationHistory = (props) => {
-  const { history } = props;
+const translationHistoryView = ({ history }) => {
   return (
     <div className="wrapper translationhistory">
-      <h3>Translated Words: </h3>
+      <h3>Translation History: </h3>
       <table className="results">
         <thead>
           <tr>
@@ -30,8 +29,8 @@ const translationHistory = (props) => {
   );
 };
 
-translationHistory.propTypes = {
+translationHistoryView.propTypes = {
   history: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object], [])).isRequired,
 };
 
-export default translationHistory;
+export default translationHistoryView;
